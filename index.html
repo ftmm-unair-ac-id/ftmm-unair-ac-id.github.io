@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FTMM – Fakultas Teknologi Maju dan Multidisiplin | Universitas Airlangga</title>
+  <meta name="google-site-verification" content="SrTZawFSaLAONuV52vjH13dAEw3zOeO0J7W9G7wwpi8" />
+<meta name="description" content="Fakultas Teknologi Maju dan Multidisiplin (FTMM) Universitas Airlangga – Inovasi, Kolaborasi, dan Teknologi untuk Indonesia Maju."/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#003366;--navy-dark:#002244;--blue:#004a9f;--gold:#c8a951;--gold-lt:#e5c97e;--white:#fff;--gray-bg:#f4f6f9;--gray-line:#dde2eb;--gray-txt:#666}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',sans-serif;font-size:14px;color:#222;background:#fff;line-height:1.6}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* TOPBAR */
+.topbar{background:var(--navy-dark);border-bottom:2px solid var(--gold);padding:5px 0}
+.tb-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+.tb-l{display:flex;gap:16px;align-items:center}
+.tb-l a,.tb-r a{color:#bbb;font-size:11.5px;transition:color .2s}
+.tb-l a:hover,.tb-r a:hover{color:var(--gold)}
+.tb-r{display:flex;gap:10px;align-items:center}
+.lang{display:flex;gap:4px;margin-left:8px}
+.lang a{padding:2px 8px;border:1px solid #555;border-radius:2px;font-size:11px;color:#bbb;transition:all .2s}
+.lang a.on,.lang a:hover{background:var(--gold);border-color:var(--gold);color:#000}
+
+/* HEADER */
+.header{background:linear-gradient(300deg, #2DA9B4 0%, #741B47 100%);box-shadow:0 2px 8px rgba(0,0,0,.09);position:sticky;top:0;z-index:1000;padding:10px 0}
+.hd-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.logo-wrap{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.logo-div{width:1px;height:54px;background:var(--gray-line);flex-shrink:0}
+.logo-txt h1{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:var(--navy);text-transform:uppercase;line-height:1.25;letter-spacing:.3px}
+.logo-txt p{font-size:11px;color:var(--gray-txt);font-style:italic;margin-top:2px}
+.logo-unair-img{height:60px;width:auto;object-fit:contain}
+.srch{display:flex;border:1.5px solid var(--gray-line);border-radius:4px;overflow:hidden;flex-shrink:0}
+.srch input{border:none;outline:none;padding:7px 14px;font-size:12.5px;width:180px;font-family:inherit}
+.srch button{background:var(--navy);border:none;color:var(--gold);padding:0 13px;cursor:pointer;font-size:13px;transition:background .2s}
+.srch button:hover{background:var(--blue)}
+
+/* NAV */
+nav.main{background:var(--navy);border-top:3px solid var(--gold)}
+.nv-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:stretch}
+.nv-in>ul{display:flex;width:100%}
+.nv-in>ul>li{position:relative}
+.nv-in>ul>li>a{display:flex;align-items:center;gap:5px;padding:12px 15px;color:#dde4f0;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;transition:background .2s,color .2s;white-space:nowrap}
+.nv-in>ul>li>a:hover,.nv-in>ul>li.cur>a{background:var(--gold);color:#000}
+.nv-in>ul>li>a .fa-chevron-down{font-size:9px;opacity:.7}
+.drop{display:none;position:absolute;top:100%;left:0;background:#fff;min-width:210px;box-shadow:0 6px 18px rgba(0,0,0,.14);z-index:999;border-top:3px solid var(--gold)}
+.drop li a{display:block;padding:9px 18px;font-size:12.5px;color:var(--navy);border-bottom:1px solid var(--gray-bg);transition:all .2s}
+.drop li a:hover{background:var(--gray-bg);color:var(--gold);padding-left:22px}
+.nv-in>ul>li:hover .drop{display:block}
+.hbg{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:10px}
+
+/* HERO */
+.hero{position:relative;width:100%;height:480px;overflow:hidden;background:var(--navy-dark)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.slide.on{opacity:1}
+.slide-bg{width:100%;height:100%;object-fit:cover;object-position:center top}
+.slide-ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,20,60,.82) 0%,rgba(0,20,60,.4) 55%,transparent 100%)}
+.slide-ct{position:absolute;bottom:58px;left:80px;max-width:560px;color:#fff}
+.badge{display:inline-block;background:var(--gold);color:#000;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:2px;margin-bottom:12px}
+.slide-ct h2{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:800;line-height:1.2;margin-bottom:12px;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.slide-ct p{font-size:13px;line-height:1.75;opacity:.9;margin-bottom:20px;max-width:450px}
+.slide-btn{display:inline-block;background:var(--gold);color:#000;padding:10px 26px;border-radius:3px;font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;transition:background .2s}
+.slide-btn:hover{background:var(--gold-lt)}
+.harr{position:absolute;bottom:20px;right:28px;display:flex;gap:8px}
+.harr button{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:13px;transition:background .2s}
+.harr button:hover{background:var(--gold);border-color:var(--gold);color:#000}
+.hdots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .25s}
+.dot.on{background:var(--gold)}
+
+/* TICKER */
+.ticker{background:var(--blue);padding:8px 0;overflow:hidden}
+.tk-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px}
+.tk-lbl{background:var(--gold);color:#000;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+.tk-track{overflow:hidden;flex:1}
+.tk-txt{display:flex;gap:60px;white-space:nowrap;animation:tick 32s linear infinite;font-size:12.5px;color:#fff}
+.tk-txt span{flex-shrink:0}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* STATS */
+.stats{background:var(--navy);border-bottom:3px solid var(--gold);padding:16px 0}
+.st-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-around;align-items:center;flex-wrap:wrap;gap:8px}
+.stat{text-align:center;color:#fff}
+.stat .n{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;color:var(--gold);line-height:1}
+.stat .l{font-size:11px;color:#bbb;text-transform:uppercase;letter-spacing:.4px;margin-top:3px}
+.sdiv{width:1px;height:40px;background:rgba(255,255,255,.18)}
+
+/* LAYOUT */
+.sec{padding:52px 0}.sec-alt{background:var(--gray-bg)}
+.cnt{max-width:1200px;margin:0 auto;padding:0 20px}
+.sh{margin-bottom:32px}.sh .pre{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.sh h2{font-family:'Montserrat',sans-serif;font-size:25px;font-weight:800;color:var(--navy);position:relative;padding-bottom:13px}
+.sh h2::after{content:'';position:absolute;bottom:0;left:0;width:46px;height:3px;background:var(--gold)}
+.sh.c{text-align:center}.sh.c h2::after{left:50%;transform:translateX(-50%)}
+.va{display:inline-block;font-size:12px;font-weight:700;color:var(--navy);border:1.5px solid var(--navy);padding:7px 18px;border-radius:3px;transition:all .2s;white-space:nowrap}
+.va:hover{background:var(--navy);color:#fff}
+
+/* PRODI */
+.pg{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.pc{background:#fff;border:1px solid var(--gray-line);border-radius:6px;padding:24px 16px 18px;text-align:center;position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s,border-color .25s}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--gold)}
+.pc:hover{box-shadow:0 8px 24px rgba(0,51,102,.13);transform:translateY(-4px);border-color:var(--gold)}
+.pi{width:54px;height:54px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 13px;font-size:21px;color:var(--gold)}
+.pc h3{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:7px}
+.pc p{font-size:11px;color:var(--gray-txt);line-height:1.55}
+.pc a.lrn{display:inline-block;margin-top:11px;font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.4px;transition:color .2s}
+.pc a.lrn:hover{color:var(--gold)}.pc a.lrn::after{content:' →'}
+
+/* NEWS */
+.ng{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+.nf{border-radius:6px;overflow:hidden;position:relative}
+.nf-img{width:100%;height:320px;object-fit:cover;display:block}
+.nf-ov{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,15,50,.9));padding:22px 20px 18px}
+.ncat{display:inline-block;background:var(--gold);color:#000;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 9px;border-radius:2px;margin-bottom:8px}
+.nf-ov h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:7px}
+.nm{font-size:11.5px;color:rgba(255,255,255,.6);display:flex;gap:14px}
+.nl{display:flex;flex-direction:column;gap:16px}
+.ni{display:flex;gap:13px;padding-bottom:16px;border-bottom:1px solid var(--gray-line)}
+.ni:last-child{border-bottom:none;padding-bottom:0}
+.nth-ph{width:86px;height:64px;border-radius:4px;flex-shrink:0;background:linear-gradient(135deg,var(--navy),var(--blue));display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:18px}
+.nb h4{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:5px;cursor:pointer;transition:color .2s}
+.nb h4:hover{color:var(--gold)}.nb .dt{font-size:11px;color:var(--gray-txt)}
+
+/* ABOUT */
+.ab-strip{display:grid;grid-template-columns:1fr 1fr}
+.ab-img{position:relative;min-height:380px;overflow:hidden}
+.ab-img img.ai{width:100%;height:100%;object-fit:cover}
+.ab-img-ov{position:absolute;inset:0;background:rgba(0,20,60,.55);display:flex;align-items:center;justify-content:center}
+.ab-inner{text-align:center;color:#fff;padding:20px}
+.ab-circle{width:100px;height:100px;border:3px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;overflow:hidden;background:rgba(0,0,0,.3)}
+.ab-circle img{width:70px;height:auto;object-fit:contain}
+.ab-inner h3{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:var(--gold)}
+.ab-inner p{font-size:12px;color:rgba(255,255,255,.75);margin-top:4px}
+.ab-txt{background:var(--navy);padding:48px 44px;color:#fff}
+.ab-txt .pre{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.ab-txt h2{font-family:'Montserrat',sans-serif;font-size:23px;font-weight:800;color:#fff;margin-bottom:14px;line-height:1.3}
+.ab-txt p{font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.8;margin-bottom:10px}
+.ab-txt .rm{display:inline-block;margin-top:16px;padding:10px 24px;background:var(--gold);color:#000;font-weight:700;font-size:12px;border-radius:3px;text-transform:uppercase;letter-spacing:.5px;transition:background .2s}
+.ab-txt .rm:hover{background:var(--gold-lt)}
+
+/* EVENTS */
+.evg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.evc{background:#fff;border:1px solid var(--gray-line);border-radius:6px;overflow:hidden;transition:box-shadow .25s,transform .25s}
+.evc:hover{box-shadow:0 8px 22px rgba(0,51,102,.11);transform:translateY(-3px)}
+.evw{position:relative;height:165px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.evw-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:44px;color:rgba(200,169,81,.4)}
+.evd{position:absolute;top:12px;left:12px;background:var(--gold);color:#000;padding:6px 10px;border-radius:4px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;line-height:1.1}
+.evd .day{font-size:22px;display:block}.evd .mon{font-size:10px;text-transform:uppercase}
+.evb{padding:14px 16px 16px}
+.evb .tag{display:inline-block;background:var(--gray-bg);color:var(--navy);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;padding:2px 8px;border-radius:2px;margin-bottom:7px}
+.evb h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:7px}
+.evm{font-size:11.5px;color:var(--gray-txt);display:flex;gap:10px;flex-wrap:wrap}
+.evm i{color:var(--gold);margin-right:3px}
+
+/* SDGs */
+.sdg-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+.sg{border-radius:5px;padding:14px 8px 10px;text-align:center;color:#fff;font-size:10px;font-weight:600;line-height:1.3;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.sg:hover{transform:scale(1.05);box-shadow:0 4px 14px rgba(0,0,0,.22)}
+.sg .sn{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;display:block;margin-bottom:3px}
+
+/* PARTNERS */
+.ptnr{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;align-items:center}
+.pitem{background:#fff;border:1px solid var(--gray-line);border-radius:6px;padding:12px 18px;width:140px;height:70px;display:flex;align-items:center;justify-content:center;transition:box-shadow .2s}
+.pitem:hover{box-shadow:0 4px 12px rgba(0,0,0,.09)}
+.pitem img{max-width:100%;max-height:46px;object-fit:contain;filter:grayscale(30%);transition:filter .2s}
+.pitem:hover img{filter:grayscale(0)}
+.pitem span{font-size:11.5px;font-weight:700;color:var(--navy);text-align:center;line-height:1.3}
+
+/* GALLERY */
+.gg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gi{height:160px;border-radius:4px;overflow:hidden;position:relative;cursor:pointer}
+.gi img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.gi:hover img{transform:scale(1.07)}
+.gi::after{content:'';position:absolute;inset:0;background:rgba(0,20,50,.18);transition:background .3s}
+.gi:hover::after{background:rgba(0,20,50,.04)}
+.gi-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:32px;color:rgba(200,169,81,.45)}
+
+/* FOOTER */
+footer{background:linear-gradient(
+36deg, #741B47 0%, #2DA9B4 100%);color:rgba(255,255,255,.7);padding-top:48px}
+.fm{max-width:1200px;margin:0 auto;padding:0 20px 38px;display:grid;grid-template-columns:1.9fr 1fr 1fr 1.4fr;gap:32px;border-bottom:1px solid rgba(255,255,255,.1)}
+.fb .flog{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.fb .flog h3{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:800;color:#fff;text-transform:uppercase;line-height:1.3}
+.fb p{font-size:12px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:16px}
+.soc{display:flex;gap:9px}
+.soc a{width:33px;height:33px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:12.5px;transition:all .2s}
+.soc a:hover{background:var(--gold);border-color:var(--gold);color:#000}
+.fc h4{font-family:'Montserrat',sans-serif;font-size:12.5px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:.4px;margin-bottom:14px;padding-bottom:9px;border-bottom:2px solid var(--gold);display:inline-block}
+.fc ul li{margin-bottom:7px}
+.fc ul li a{font-size:12px;color:rgba(255,255,255,.55);transition:color .2s;display:flex;align-items:center;gap:6px}
+.fc ul li a::before{content:'›';color:var(--gold)}
+.fc ul li a:hover{color:var(--gold-lt)}
+.cl li{display:flex;align-items:flex-start;gap:9px;margin-bottom:11px;font-size:12px;color:rgba(255,255,255,.6)}
+.cl li i{color:var(--gold);margin-top:2px;flex-shrink:0;width:14px}
+.fb2{background:rgba(0,0,0,.28);padding:14px 0}
+.fb2-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:8px}
+.fb2-in a{color:rgba(255,255,255,.45);transition:color .2s}
+.fb2-in a:hover{color:var(--gold)}
+.fl{display:flex;gap:14px}
+
+/* BTT */
+#btt{position:fixed;bottom:26px;right:26px;background:var(--navy);color:var(--gold);border:2px solid var(--gold);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,background .2s;z-index:2000}
+#btt.show{opacity:1;pointer-events:all}
+#btt:hover{background:var(--gold);color:#000}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.pg{grid-template-columns:repeat(3,1fr)}.sdg-grid{grid-template-columns:repeat(4,1fr)}.fm{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){
+  .topbar{display:none}.hero{height:300px}.slide-ct{left:24px;bottom:30px}.slide-ct h2{font-size:20px}
+  .pg{grid-template-columns:repeat(2,1fr)}.ng,.ab-strip{grid-template-columns:1fr}.evg{grid-template-columns:1fr}
+  .gg{grid-template-columns:repeat(2,1fr)}.sdg-grid{grid-template-columns:repeat(3,1fr)}.fm{grid-template-columns:1fr}
+  .nv-in>ul{display:none}.hbg{display:block}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="tb-in">
+    <div class="tb-l">
+      <a href="mailto:info@ftmm.unair.ac.id"><i class="fas fa-envelope" style="margin-right:4px"></i>info@ftmm.unair.ac.id</a>
+      <a href="#"><i class="fas fa-map-marker-alt" style="margin-right:4px"></i>Gedung Nano, Kampus C UNAIR, Surabaya</a>
+    </div>
+    <div class="tb-r">
+      <a href="https://www.instagram.com/ftmmunair" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@ftmmunair" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://x.com/ftmmunair" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.linkedin.com/school/ftmmunair" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <div class="lang">
+        <a href="https://ftmm.unair.ac.id/" class="on">ID</a>
+        <a href="https://ftmm.unair.ac.id/en/">EN</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="hd-in">
+    <div class="logo-wrap">
+      <!-- Logo resmi UNAIR + FTMM dari server ftmm.unair.ac.id -->
+      <a href="https://ftmm.unair.ac.id/">
+        <img src="https://ftmm.unair.ac.id/wp-content/uploads/2022/10/LOGO-UNAIR-1954-FTMM-2-768x204.png"
+             alt="Logo UNAIR FTMM Universitas Airlangga Fakultas Teknologi Maju dan Multidisiplin"
+             style="height:60px;width:auto;object-fit:contain;display:block"
+             onerror="this.onerror=null;this.style.display='none';document.getElementById('logo-fallback').style.display='flex'"/>
+      </a>
+      <!-- Fallback jika gambar gagal dimuat -->
+      <div id="logo-fallback" style="display:none;align-items:center;gap:14px">
+        <svg height="60" viewBox="0 0 175 58" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#004a9f"/><stop offset="100%" stop-color="#003366"/></linearGradient>
+            <linearGradient id="gT" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5a4fa0"/><stop offset="100%" stop-color="#3a2a8a"/></linearGradient>
+            <linearGradient id="gM1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#9a5ab5"/><stop offset="100%" stop-color="#7b3fa0"/></linearGradient>
+            <linearGradient id="gM2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e5c97e"/><stop offset="100%" stop-color="#c8a951"/></linearGradient>
+          </defs>
+          <text y="48" x="2"   font-family="Montserrat,sans-serif" font-size="48" font-weight="900" fill="url(#gF)">F</text>
+          <text y="48" x="34"  font-family="Montserrat,sans-serif" font-size="48" font-weight="900" fill="url(#gT)">T</text>
+          <text y="48" x="62"  font-family="Montserrat,sans-serif" font-size="48" font-weight="900" fill="url(#gM1)">M</text>
+          <text y="48" x="100" font-family="Montserrat,sans-serif" font-size="48" font-weight="900" fill="url(#gM2)">M</text>
+          <line x1="2" y1="56" x2="140" y2="56" stroke="#c8a951" stroke-width="2"/>
+        </svg>
+        <div class="logo-txt">
+          <h1>Fakultas Teknologi Maju<br/>dan Multidisiplin</h1>
+          <p>Universitas Airlangga – Surabaya</p>
+        </div>
+      </div>
+    </div>
+    <div class="srch">
+      <input type="text" placeholder="Cari di FTMM..."/>
+      <button><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="main">
+  <div class="nv-in">
+    <button class="hbg"><i class="fas fa-bars"></i></button>
+    <ul>
+      <li class="cur"><a href="https://ftmm.unair.ac.id/">Beranda</a></li>
+      <li>
+        <a href="#">Tentang FTMM <i class="fas fa-chevron-down"></i></a>
+        <ul class="drop">
+          <li><a href="https://ftmm.unair.ac.id/sejarah-fakultas/">Sejarah Fakultas</a></li>
+          <li><a href="https://ftmm.unair.ac.id/visi-misi/">Visi &amp; Misi</a></li>
+          <li><a href="https://ftmm.unair.ac.id/dekan-ftmm-unair/">Pimpinan Fakultas</a></li>
+          <li><a href="https://ftmm.unair.ac.id/struktur-organisasi/">Struktur Organisasi</a></li>
+          <li><a href="https://ftmm.unair.ac.id/identitas-ftmm/">Identitas FTMM</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Akademik <i class="fas fa-chevron-down"></i></a>
+        <ul class="drop">
+          <li><a href="#">Program Studi</a></li>
+          <li><a href="#">Kalender Akademik</a></li>
+          <li><a href="#">Panduan Akademik</a></li>
+          <li><a href="https://cybercampus.unair.ac.id/">CyberCampus / E-Learning</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Penelitian <i class="fas fa-chevron-down"></i></a>
+        <ul class="drop">
+          <li><a href="#">Publikasi Ilmiah</a></li>
+          <li><a href="https://icatam.ftmm.unair.ac.id/">ICATAM Conference</a></li>
+          <li><a href="#">Penelitian Dosen</a></li>
+          <li><a href="#">Jurnal FTMM</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Kemahasiswaan <i class="fas fa-chevron-down"></i></a>
+        <ul class="drop">
+          <li><a href="#">BEM FTMM</a></li>
+          <li><a href="#">Himpunan Mahasiswa</a></li>
+          <li><a href="#">Prestasi Mahasiswa</a></li>
+          <li><a href="#">Beasiswa</a></li>
+          <li><a href="#">Kampus Merdeka</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Fasilitas <i class="fas fa-chevron-down"></i></a>
+        <ul class="drop">
+          <li><a href="https://ftmm.unair.ac.id/fasilitas-akademik/">Fasilitas Akademik</a></li>
+          <li><a href="https://ftmm.unair.ac.id/fasilitas-penunjang-ftmm/">Fasilitas Penunjang</a></li>
+          <li><a href="#">Laboratorium</a></li>
+          <li><a href="#">Gedung Nano</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Kerjasama <i class="fas fa-chevron-down"></i></a>
+        <ul class="drop">
+          <li><a href="#">Mitra Industri</a></li>
+          <li><a href="#">Kerjasama Internasional</a></li>
+          <li><a href="#">MoU &amp; MoA</a></li>
+        </ul>
+      </li>
+      <li><a href="https://ftmm.unair.ac.id/download/">Download</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO SLIDER -->
+<section class="hero" id="hero">
+  <!-- Slide 1: Gedung NANO dari sarpras.unair.ac.id -->
+  <div class="slide on">
+    <img class="slide-bg"
+         src="https://sarpras.unair.ac.id/assets/website/img/news/news_041d31e0af5950075.jpeg"
+         alt="Gedung NANO FTMM UNAIR"
+         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#001833,#003880,#005ab5)'"/>
+    <div class="slide-ov"></div>
+    <div class="slide-ct">
+      <span class="badge">Selamat Datang di FTMM UNAIR</span>
+      <h2>Fakultas Teknologi Maju<br/>dan Multidisiplin</h2>
+      <p>Menyiapkan sumberdaya manusia yang siap berkolaborasi dalam segala hal untuk menyongsong Era Revolusi Industri 4.0 dan berkarya nyata untuk Indonesia Maju.</p>
+      <a href="https://ftmm.unair.ac.id/en/" class="slide-btn">Pelajari Lebih Lanjut</a>
+    </div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide" style="background:linear-gradient(135deg,#001a33,#003d80,#0060cc)">
+    <div class="slide-ov"></div>
+    <div style="position:absolute;right:60px;top:50%;transform:translateY(-50%);opacity:.07">
+      <svg width="320" height="320" viewBox="0 0 320 320"><circle cx="160" cy="160" r="150" fill="none" stroke="#c8a951" stroke-width="1"/><circle cx="160" cy="160" r="100" fill="none" stroke="#c8a951" stroke-width="1"/><ellipse cx="160" cy="160" rx="150" ry="52" fill="none" stroke="#fff" stroke-width=".8"/><ellipse cx="160" cy="160" rx="150" ry="52" fill="none" stroke="#fff" stroke-width=".8" transform="rotate(60 160 160)"/><ellipse cx="160" cy="160" rx="150" ry="52" fill="none" stroke="#fff" stroke-width=".8" transform="rotate(120 160 160)"/><circle cx="160" cy="160" r="12" fill="#c8a951" opacity=".5"/></svg>
+    </div>
+    <div class="slide-ct">
+      <span class="badge">5 Program Studi Unggulan</span>
+      <h2>Pionir Teknologi<br/>di Indonesia</h2>
+      <p>Teknologi Robotika &amp; Kecerdasan Buatan dan Rekayasa Nanoteknologi — dua program studi yang pertama dan satu-satunya di seluruh Indonesia.</p>
+      <a href="https://ftmm.unair.ac.id/en/data-science-technology-study-program/" class="slide-btn">Lihat Program Studi</a>
+    </div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide" style="background:linear-gradient(135deg,#0a1a00,#1a4a00,#2a7a00)">
+    <div class="slide-ov"></div>
+    <div class="slide-ct">
+      <span class="badge">SDGs – Pembangunan Berkelanjutan</span>
+      <h2>FTMM untuk<br/>Dunia Berkelanjutan</h2>
+      <p>FTMM UNAIR mengadopsi 17 poin Sustainable Development Goals PBB sebagai landasan pengembangan ilmu pengetahuan dan teknologi yang bermanfaat bagi dunia.</p>
+      <a href="#sdgs" class="slide-btn">Lihat Komitmen SDGs</a>
+    </div>
+  </div>
+
+  <div class="harr">
+    <button id="prev"><i class="fas fa-chevron-left"></i></button>
+    <button id="next"><i class="fas fa-chevron-right"></i></button>
+  </div>
+  <div class="hdots">
+    <div class="dot on" data-i="0"></div>
+    <div class="dot" data-i="1"></div>
+    <div class="dot" data-i="2"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tk-in">
+    <span class="tk-lbl"><i class="fas fa-bullhorn" style="margin-right:4px"></i>Pengumuman</span>
+    <div class="tk-track">
+      <div class="tk-txt">
+        <span>🎓 Pendaftaran Mahasiswa Baru UNAIR 2025 – ppmb.unair.ac.id</span>
+        <span>📢 ICATAM 2025 – International Conference of Advanced Technology and Multidiscipline</span>
+        <span>🏆 Tim EV-OS FTMM Raih Penghargaan Kompetisi Kendaraan Listrik Nasional</span>
+        <span>🤝 FTMM tandatangani MoU dengan berbagai mitra industri dan institusi internasional</span>
+        <span>📚 Beasiswa penelitian FTMM 2025 – info@ftmm.unair.ac.id</span>
+        <span>🎓 Pendaftaran Mahasiswa Baru UNAIR 2025 – ppmb.unair.ac.id</span>
+        <span>📢 ICATAM 2025 – International Conference of Advanced Technology and Multidiscipline</span>
+        <span>🏆 Tim EV-OS FTMM Raih Penghargaan Kompetisi Kendaraan Listrik Nasional</span>
+        <span>🤝 FTMM tandatangani MoU dengan berbagai mitra industri dan institusi internasional</span>
+        <span>📚 Beasiswa penelitian FTMM 2025 – info@ftmm.unair.ac.id</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="st-in">
+    <div class="stat"><div class="n">5</div><div class="l">Program Studi</div></div>
+    <div class="sdiv"></div>
+    <div class="stat"><div class="n" id="s1">2500+</div><div class="l">Mahasiswa Aktif</div></div>
+    <div class="sdiv"></div>
+    <div class="stat"><div class="n" id="s2">120+</div><div class="l">Dosen &amp; Tendik</div></div>
+    <div class="sdiv"></div>
+    <div class="stat"><div class="n" id="s3">50+</div><div class="l">Mitra Industri</div></div>
+    <div class="sdiv"></div>
+    <div class="stat"><div class="n" id="s4">200+</div><div class="l">Prestasi Nasional &amp; Intl</div></div>
+    <div class="sdiv"></div>
+    <div class="stat"><div class="n">2019</div><div class="l">Tahun Berdiri</div></div>
+  </div>
+</div>
+
+<!-- PROGRAM STUDI -->
+<section class="sec">
+  <div class="cnt">
+    <div class="sh c"><div class="pre">Akademik</div><h2>Program Studi FTMM</h2></div>
+    <div class="pg">
+      <div class="pc"><div class="pi"><i class="fas fa-database"></i></div><h3>Teknologi Sains Data</h3><p>Pengolahan big data, machine learning, dan kecerdasan buatan untuk era digital.</p><a href="https://ftmm.unair.ac.id/en/data-science-technology-study-program/" class="lrn">Selengkapnya</a></div>
+      <div class="pc"><div class="pi"><i class="fas fa-robot"></i></div><h3>Teknologi Robotika &amp; Kecerdasan Buatan</h3><p>Satu-satunya di Indonesia. Robotika modern dan algoritma AI terkini.</p><a href="https://ftmm.unair.ac.id/en/robotics-and-ai-engineering-study-program/" class="lrn">Selengkapnya</a></div>
+      <div class="pc"><div class="pi"><i class="fas fa-atom"></i></div><h3>Rekayasa Nanoteknologi</h3><p>Inovasi di skala nano untuk kesehatan, energi, dan material maju. Pertama di Indonesia.</p><a href="https://ftmm.unair.ac.id/en/rekayasa-nanoteknologi-program-studi/" class="lrn">Selengkapnya</a></div>
+      <div class="pc"><div class="pi"><i class="fas fa-bolt"></i></div><h3>Teknik Elektro</h3><p>Sistem kelistrikan, elektronika, kendali, dan telekomunikasi bertaraf internasional.</p><a href="https://ftmm.unair.ac.id/en/electrical-engineering-study-program/" class="lrn">Selengkapnya</a></div>
+      <div class="pc"><div class="pi"><i class="fas fa-industry"></i></div><h3>Teknik Industri</h3><p>Mengintegrasikan sistem produksi, manajemen, dan teknologi untuk efisiensi industri.</p><a href="https://ftmm.unair.ac.id/en/industrial-engineering-study-program/" class="lrn">Selengkapnya</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA -->
+<section class="sec sec-alt">
+  <div class="cnt">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px">
+      <div class="sh" style="margin-bottom:0"><div class="pre">Terkini</div><h2>Berita &amp; Informasi</h2></div>
+      <a href="https://ftmm.unair.ac.id/category/ftmm-news/" class="va">Lihat Semua Berita →</a>
+    </div>
+    <div class="ng">
+      <div class="nf">
+        <img class="nf-img"
+             src="https://sarpras.unair.ac.id/assets/website/img/news/news_041d31e0af5950075.jpeg"
+             alt="Gedung NANO FTMM"
+             onerror="this.onerror=null;this.style.cssText='background:linear-gradient(135deg,#002244,#0055aa);height:320px;width:100%;display:block'"/>
+        <div class="nf-ov">
+          <span class="ncat">FTMM News</span>
+          <h3>FTMM UNAIR Raih Akreditasi Unggul untuk Seluruh Program Studi Tahun Akademik 2024/2025</h3>
+          <div class="nm">
+            <span><i class="fas fa-calendar-alt" style="margin-right:4px"></i>15 Maret 2025</span>
+            <span><i class="fas fa-user" style="margin-right:4px"></i>Humas FTMM</span>
+          </div>
+        </div>
+      </div>
+      <div class="nl">
+        <div class="ni"><div class="nth-ph"><i class="fas fa-microscope"></i></div><div class="nb"><h4>Tim Peneliti FTMM Kembangkan Material Nano untuk Baterai Kendaraan Listrik</h4><div class="dt"><i class="fas fa-calendar-alt" style="margin-right:4px;color:var(--gold)"></i>10 Maret 2025</div></div></div>
+        <div class="ni"><div class="nth-ph"><i class="fas fa-trophy"></i></div><div class="nb"><h4>Mahasiswa FTMM Juara 1 Data Mining di Academic Competition of Data Science 2024</h4><div class="dt"><i class="fas fa-calendar-alt" style="margin-right:4px;color:var(--gold)"></i>5 Maret 2025</div></div></div>
+        <div class="ni"><div class="nth-ph"><i class="fas fa-handshake"></i></div><div class="nb"><h4>FTMM UNAIR Tandatangani MoU dengan PT Telkom Indonesia untuk Kolaborasi Riset AI</h4><div class="dt"><i class="fas fa-calendar-alt" style="margin-right:4px;color:var(--gold)"></i>28 Feb 2025</div></div></div>
+        <div class="ni"><div class="nth-ph"><i class="fas fa-graduation-cap"></i></div><div class="nb"><h4>Wisuda Perdana Angkatan 2020: 420 Lulusan FTMM Siap Berkarya untuk Indonesia Maju</h4><div class="dt"><i class="fas fa-calendar-alt" style="margin-right:4px;color:var(--gold)"></i>20 Feb 2025</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="ab-strip">
+  <div class="ab-img">
+    <img class="ai"
+         src="https://sarpras.unair.ac.id/assets/website/img/news/news_041d31e0af5950075.jpeg"
+         alt="Gedung NANO Kampus FTMM UNAIR"
+         onerror="this.onerror=null;this.style.cssText='background:linear-gradient(135deg,#001833,#004a9f);width:100%;height:100%;display:block'"/>
+    <div class="ab-img-ov">
+      <div class="ab-inner">
+        <div class="ab-circle">
+          <img src="https://arsip.unair.ac.id/wp-content/uploads/2019/01/cropped-logo-unair-1.png"
+               alt="Logo UNAIR"
+               onerror="this.onerror=null;this.parentElement.innerHTML='<i class=\'fas fa-university\' style=\'font-size:32px;color:var(--gold)\'></i>'"/>
+        </div>
+        <h3>FTMM UNAIR</h3>
+        <p>Didirikan 2019 • Gedung Nano, Kampus C Surabaya</p>
+        <p style="margin-top:12px;font-size:11px;max-width:200px;margin:12px auto 0;opacity:.75">"Beraksi Dengan Kolaborasi"</p>
+      </div>
+    </div>
+  </div>
+  <div class="ab-txt">
+    <div class="pre">Tentang Kami</div>
+    <h2>Fakultas Teknologi Maju<br/>dan Multidisiplin</h2>
+    <p>Fakultas Teknologi Maju dan Multidisiplin (FTMM) didirikan pada November 2019 sebagai pilar keempat Universitas Airlangga, melengkapi Ilmu Sosial, Sains Kehidupan, dan Sains Kesehatan.</p>
+    <p>Dengan dosen lulusan perguruan tinggi terkemuka luar negeri, laboratorium berteknologi tinggi, dan ekosistem inovasi yang dinamis, FTMM berkomitmen mencetak lulusan yang inovatif, solutif, dan kontributif.</p>
+    <p>Dua prodi kami — Teknologi Robotika &amp; Kecerdasan Buatan dan Rekayasa Nanoteknologi — merupakan yang pertama dan satu-satunya di Indonesia.</p>
+    <a href="https://ftmm.unair.ac.id/en/sejarah-fakultas/" class="rm">Baca Selengkapnya</a>
+  </div>
+</div>
+
+<!-- EVENTS -->
+<section class="sec sec-alt">
+  <div class="cnt">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px">
+      <div class="sh" style="margin-bottom:0"><div class="pre">Agenda</div><h2>Kegiatan &amp; Acara</h2></div>
+      <a href="https://ftmm.unair.ac.id/category/announcement/" class="va">Semua Agenda →</a>
+    </div>
+    <div class="evg">
+      <div class="evc"><div class="evw" style="background:linear-gradient(135deg,#002244,#0055cc)"><div class="evw-ph"><i class="fas fa-microphone-alt"></i></div><div class="evd"><span class="day">25</span><span class="mon">Apr 2025</span></div></div><div class="evb"><span class="tag">Seminar</span><h4>Seminar Nasional Teknologi Informasi dan Inovasi Digital FTMM 2025</h4><div class="evm"><span><i class="fas fa-clock"></i>08.00–17.00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Auditorium FTMM</span></div></div></div>
+      <div class="evc"><div class="evw" style="background:linear-gradient(135deg,#003d00,#007700)"><div class="evw-ph"><i class="fas fa-laptop-code"></i></div><div class="evd"><span class="day">10</span><span class="mon">Mei 2025</span></div></div><div class="evb"><span class="tag">Workshop</span><h4>Workshop Machine Learning: Dari Teori ke Implementasi Nyata</h4><div class="evm"><span><i class="fas fa-clock"></i>09.00–16.00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Lab Komputasi FTMM</span></div></div></div>
+      <div class="evc"><div class="evw" style="background:linear-gradient(135deg,#330000,#880000)"><div class="evw-ph"><i class="fas fa-users"></i></div><div class="evd"><span class="day">20</span><span class="mon">Mei 2025</span></div></div><div class="evb"><span class="tag">Career Day</span><h4>FTMM Career Fair 2025 – Connecting Talent with Industry Leaders</h4><div class="evm"><span><i class="fas fa-clock"></i>08.00–15.00 WIB</span><span><i class="fas fa-map-marker-alt"></i>Gedung Nano, Kampus C</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SDGs -->
+<section class="sec" id="sdgs">
+  <div class="cnt">
+    <div class="sh c"><div class="pre">Komitmen</div><h2>Sustainable Development Goals (SDGs)</h2></div>
+    <p style="text-align:center;max-width:680px;margin:0 auto;font-size:13px;color:var(--gray-txt);line-height:1.8">FTMM mengadopsi 17 poin SDGs PBB sebagai landasan pengembangan teknologi yang berdampak positif bagi masyarakat dunia.</p>
+    <div class="sdg-grid">
+      <div class="sg" style="background:#e5243b"><span class="sn">1</span>Tanpa Kemiskinan</div>
+      <div class="sg" style="background:#dda63a"><span class="sn">2</span>Tanpa Kelaparan</div>
+      <div class="sg" style="background:#4c9f38"><span class="sn">3</span>Kehidupan Sehat</div>
+      <div class="sg" style="background:#c5192d"><span class="sn">4</span>Pendidikan Berkualitas</div>
+      <div class="sg" style="background:#ff3a21"><span class="sn">5</span>Kesetaraan Gender</div>
+      <div class="sg" style="background:#26bde2"><span class="sn">6</span>Air Bersih</div>
+      <div class="sg" style="background:#fcc30b;color:#222"><span class="sn">7</span>Energi Bersih</div>
+      <div class="sg" style="background:#a21942"><span class="sn">8</span>Pekerjaan Layak</div>
+      <div class="sg" style="background:#fd6925"><span class="sn">9</span>Industri &amp; Inovasi</div>
+      <div class="sg" style="background:#dd1367"><span class="sn">10</span>Berkurangnya Kesenjangan</div>
+      <div class="sg" style="background:#fd9d24;color:#222"><span class="sn">11</span>Kota Berkelanjutan</div>
+      <div class="sg" style="background:#bf8b2e"><span class="sn">12</span>Konsumsi Bertanggung Jawab</div>
+      <div class="sg" style="background:#3f7e44"><span class="sn">13</span>Penanganan Iklim</div>
+      <div class="sg" style="background:#0a97d9"><span class="sn">14</span>Ekosistem Lautan</div>
+      <div class="sg" style="background:#56c02b;color:#222"><span class="sn">15</span>Ekosistem Daratan</div>
+      <div class="sg" style="background:#00689d"><span class="sn">16</span>Perdamaian &amp; Keadilan</div>
+      <div class="sg" style="background:#19486a"><span class="sn">17</span>Kemitraan Global</div>
+    </div>
+  </div>
+</section>
+
+<!-- MITRA -->
+<section class="sec sec-alt">
+  <div class="cnt">
+    <div class="sh c"><div class="pre">Kerjasama</div><h2>Mitra &amp; Kerjasama</h2></div>
+    <div class="ptnr">
+      <!-- Logo UNAIR resmi sebagai salah satu mitra -->
+      <div class="pitem">
+        <img src="https://arsip.unair.ac.id/wp-content/uploads/2019/01/cropped-logo-unair-1.png" alt="UNAIR" onerror="this.outerHTML='<span style=\'font-size:11.5px;font-weight:700;color:var(--navy);text-align:center\'>UNAIR</span>'"/>
+      </div>
+      <div class="pitem"><span>PT Telkom<br/>Indonesia</span></div>
+      <div class="pitem"><span>PT PLN<br/>(Persero)</span></div>
+      <div class="pitem"><span>PT Pertamina<br/>(Persero)</span></div>
+      <div class="pitem"><span>Siemens<br/>Indonesia</span></div>
+      <div class="pitem"><span>PT Astra<br/>International</span></div>
+      <div class="pitem"><span>BRIN<br/>Indonesia</span></div>
+      <div class="pitem"><span>ITS<br/>Surabaya</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section class="sec">
+  <div class="cnt">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px">
+      <div class="sh" style="margin-bottom:0"><div class="pre">Dokumentasi</div><h2>Galeri Kegiatan</h2></div>
+      <a href="#" class="va">Lihat Semua Foto →</a>
+    </div>
+    <div class="gg">
+      <!-- Tile 1 & 6: Foto gedung NANO (terverifikasi) -->
+      <div class="gi"><img src="https://sarpras.unair.ac.id/assets/website/img/news/news_041d31e0af5950075.jpeg" alt="Gedung NANO FTMM"/></div>
+      <div class="gi" style="background:linear-gradient(135deg,#001a00,#005500)"><div class="gi-ph"><i class="fas fa-robot"></i></div></div>
+      <div class="gi" style="background:linear-gradient(135deg,#1a0000,#660000)"><div class="gi-ph"><i class="fas fa-graduation-cap"></i></div></div>
+      <div class="gi" style="background:linear-gradient(135deg,#1a0033,#5500aa)"><div class="gi-ph"><i class="fas fa-trophy"></i></div></div>
+      <div class="gi" style="background:linear-gradient(135deg,#002233,#005566)"><div class="gi-ph"><i class="fas fa-users"></i></div></div>
+      <div class="gi"><img src="https://sarpras.unair.ac.id/assets/website/img/news/news_041d31e0af5950075.jpeg" alt="Kampus FTMM" style="filter:hue-rotate(180deg) saturate(.7)"/></div>
+      <div class="gi" style="background:linear-gradient(135deg,#001a1a,#004444)"><div class="gi-ph"><i class="fas fa-microscope"></i></div></div>
+      <div class="gi" style="background:linear-gradient(135deg,#1a1500,#554400)"><div class="gi-ph"><i class="fas fa-laptop-code"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fm">
+    <!-- Brand -->
+    <div class="fb">
+      <div class="flog">
+        <img src="https://ftmm.unair.ac.id/wp-content/uploads/2022/10/LOGO-UNAIR-1954-FTMM-2-768x204.png"
+             alt="Logo FTMM UNAIR"
+             style="height:44px;width:auto;object-fit:contain"
+             onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <div style="display:none"><h3>Fakultas Teknologi Maju<br/>dan Multidisiplin</h3><p style="font-size:10px;color:#aaa;margin-top:2px">Universitas Airlangga</p></div>
+      </div>
+      <p>Berkomitmen menjadi fakultas teknologi bertaraf internasional yang menghasilkan lulusan inovatif, solutif, dan kontributif bagi kemajuan bangsa Indonesia dan dunia.</p>
+      <div class="soc">
+        <a href="https://www.instagram.com/ftmmunair" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@ftmmunair" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://x.com/ftmmunair" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/school/ftmmunair" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.tiktok.com/@ftmmunair" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <!-- Tautan Cepat -->
+    <div class="fc">
+      <h4>Tautan Cepat</h4>
+      <ul>
+        <li><a href="https://ftmm.unair.ac.id/">Beranda</a></li>
+        <li><a href="https://ftmm.unair.ac.id/sejarah-fakultas/">Tentang FTMM</a></li>
+        <li><a href="https://ftmm.unair.ac.id/identitas-ftmm/">Identitas FTMM</a></li>
+        <li><a href="https://ftmm.unair.ac.id/category/ftmm-news/">Berita</a></li>
+        <li><a href="https://ftmm.unair.ac.id/category/announcement/">Agenda</a></li>
+        <li><a href="https://ftmm.unair.ac.id/download/">Download Center</a></li>
+        <li><a href="https://ppmb.unair.ac.id/">Pendaftaran Mahasiswa</a></li>
+      </ul>
+    </div>
+    <!-- Akademik -->
+    <div class="fc">
+      <h4>Akademik</h4>
+      <ul>
+        <li><a href="https://cybercampus.unair.ac.id/">CyberCampus</a></li>
+        <li><a href="https://lib.unair.ac.id/">Perpustakaan UNAIR</a></li>
+        <li><a href="https://icatam.ftmm.unair.ac.id/">ICATAM Conference</a></li>
+        <li><a href="#">Kalender Akademik</a></li>
+        <li><a href="#">Beasiswa FTMM</a></li>
+        <li><a href="#">Kampus Merdeka</a></li>
+        <li><a href="https://unair.ac.id/">UNAIR Official</a></li>
+      </ul>
+    </div>
+    <!-- Kontak -->
+    <div class="fc">
+      <h4>Kontak</h4>
+      <ul class="cl">
+        <li><i class="fas fa-map-marker-alt"></i><span>Gedung Nano, Kampus C UNAIR, Jl. Dr. Ir. H. Soekarno, Mulyorejo, Surabaya 60115</span></li>
+        <li><i class="fas fa-envelope"></i><span>info@ftmm.unair.ac.id</span></li>
+        <li><i class="fab fa-instagram"></i><span>@ftmmunair</span></li>
+        <li><i class="fab fa-youtube"></i><span>FTMM UNAIR</span></li>
+        <li><i class="fas fa-globe"></i><span>ftmm.unair.ac.id</span></li>
+        <li><i class="fas fa-clock"></i><span>Senin – Jumat: 08.00 – 16.00 WIB</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fb2">
+    <div class="fb2-in">
+      <span>Copyright &copy; 2025 FTMM UNAIR. All rights reserved.</span>
+      <div class="fl">
+        <a href="#">Kebijakan Privasi</a>
+        <a href="#">Syarat &amp; Ketentuan</a>
+        <a href="#">Peta Situs</a>
+        <a href="https://unair.ac.id/">Universitas Airlangga</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="btt" title="Kembali ke Atas"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+// Slider
+const slides=document.querySelectorAll('.slide'),dots=document.querySelectorAll('.dot');
+let cur=0,timer;
+function goTo(n){slides[cur].classList.remove('on');dots[cur].classList.remove('on');cur=(n+slides.length)%slides.length;slides[cur].classList.add('on');dots[cur].classList.add('on');}
+function startAuto(){timer=setInterval(()=>goTo(cur+1),5500);}
+document.getElementById('next').onclick=()=>{clearInterval(timer);goTo(cur+1);startAuto();};
+document.getElementById('prev').onclick=()=>{clearInterval(timer);goTo(cur-1);startAuto();};
+dots.forEach(d=>d.addEventListener('click',()=>{clearInterval(timer);goTo(+d.dataset.i);startAuto();}));
+startAuto();
+// Back to top
+const btt=document.getElementById('btt');
+window.addEventListener('scroll',()=>btt.classList.toggle('show',scrollY>300));
+btt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+// Counter
+const targets=[{id:'s1',val:2500,suf:'+'},{id:'s2',val:120,suf:'+'},{id:'s3',val:50,suf:'+'},{id:'s4',val:200,suf:'+'}];
+let done=false;
+new IntersectionObserver(e=>{
+  if(e[0].isIntersecting&&!done){done=true;
+    targets.forEach(({id,val,suf})=>{
+      const el=document.getElementById(id);let s=0;
+      const t=setInterval(()=>{s+=val/60;if(s>=val){s=val;clearInterval(t);}el.textContent=Math.floor(s).toLocaleString('id-ID')+suf;},20);
+    });
+  }
+}).observe(document.querySelector('.stats'));
+</script>
+</body>
+</html>
